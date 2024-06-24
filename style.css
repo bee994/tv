@@ -1,0 +1,78 @@
+html {color-scheme: dark}
+body{
+    color: #eee;
+    font-size: 1.125rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+}
+
+.wrapper {
+    width: min(900px, 100% - 3rem);
+    margin-inline: auto;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  background: #323232;
+}
+
+caption, th, td{
+  padding: 1rem;
+}
+
+caption, th{ 
+  /*change to be center??*/
+text-align: left;
+}
+
+caption{
+  background: hsl(0 0% 0%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  /*text-transform: uppercase;*/
+}
+
+th{
+  background: hsl(0 0% 0% / 0.5)
+}
+
+tr:nth-of-type(2n) {
+/*change ... / 0.1 to 0.05??*/
+    background: hsl(0 0% 0% / 0.1)
+}
+
+/*media*/
+@media (max-width: 650px) {
+  th{
+    display: none;
+  }
+  
+  td{
+    /*change first padding to 1rem was 0.5rem*/
+    /*display: block remove grid columns*/
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 15ch auto;
+    padding: 0.75rem 1rem;
+  }
+  
+  td:first-child{
+    padding-top: 2rem;
+  }
+  
+    td:last-child{
+    padding-bottom: 2rem;
+  }
+  
+  td::before{
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize; 
+  }
+}
+
+.table-container{
+  max-width: 100%;
+  overflow-x:  scroll;
+}
